@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+streamlit
+plotly
+seaborn
+snowflake-connector-python
+streamlit-option-menu
+scikit-learn
