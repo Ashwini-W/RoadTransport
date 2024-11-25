@@ -24,7 +24,7 @@ def generate_road_construction_conclusions(state, dominant_vehicle_type, total_v
 
 
     # Bulky Heavy-Duty Roads and Highways
-    if dominant_vehicle_type in ["Multiaxled/Articulated Vehicles (I)", "Trucks and Lorries (II)"]:
+    if dominant_vehicle_type in ["Multiaxled/Articulated Vehicles (I)", "Trucks and Lorries (II)","Light Motor Vehicles (Goods) (II) - Four Wheelers"]:
         conclusions.append(
             f"Since {state} has a high concentration of {dominant_vehicle_type}, "
             "it requires high-quality concrete roads designed for heavy loads. "
@@ -51,16 +51,16 @@ def generate_road_construction_conclusions(state, dominant_vehicle_type, total_v
             "should be promoted, along with strict emission checks to reduce pollution."
         )
         conclusions.append(
-            f"Improved road connectivity to industrial hubs in {state} is essential. Ring roads and access roads "
+            f"Improved road connectivity to **industrial hubs** in {state} is essential. Ring roads and access roads "
             "should connect warehouses, ports, and airports to support bulky vehicles movement."
         )
 
 
     #Light private 3 4 Urban Road Network Expansion
-    if dominant_vehicle_type in ["Light Motor Vehicles (Passengers) (VI) - Three Seaters","Light Motor Vehicles (Passengers) (VI) - Four to six seaters",
+    elif dominant_vehicle_type in ["Light Motor Vehicles (Passengers) (VI) - Three Seaters","Light Motor Vehicles (Passengers) (VI) - Four to six seaters",
     "Taxis (V) - Motor cabs","Taxis (V) - Maxi cabs", "Taxis (V) - Other taxis"]:
         conclusions.append(
-            f"In {state}, the high number of {dominant_vehicle_type} indicates a need for expanding urban road networks. "
+            f"In {state}, the high number of {dominant_vehicle_type} indicates a need for expanding **urban road networks**. "
             "Focus should be on creating well-maintained city roads and suburban links to handle frequent passenger transit."
         )
         conclusions.append(
@@ -82,6 +82,19 @@ def generate_road_construction_conclusions(state, dominant_vehicle_type, total_v
         conclusions.append(
             f"Since {dominant_vehicle_type} is widely used in {state}, promoting eco-friendly alternatives like "
             "electric/V,CNG three-seaters four-seaters can reduce emissions and enhance sustainability."
+        )
+    
+    #Buses
+    elif dominant_vehicle_type in ["Buses (IV) - Stage carriages","Buses (IV) - Contract carriages","Buses (IV) - Private service vehicles","Buses (IV) - Other buses"]:
+        conclusions.append(
+            f"Since huge count of {dominant_vehicle_type} dominate across {state} and most of the other regions too, it suggests that buses play a critical role in public transit, and investment should focus on expanding the bus fleet."
+            "For intercity regions and for daily communite,policies and investment opportunites in buses transport should be done in these areas. "
+        )
+
+    else:
+        conclusions.append(
+            f"The huge count of {dominant_vehicle_type} in {state} suggests strong public transit demand and well connectivity between cities. "
+            "A robust public transit system can reduce dependency on private vehicles."
         )
 
     return conclusions
